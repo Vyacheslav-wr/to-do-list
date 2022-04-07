@@ -1,0 +1,16 @@
+.app {
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  width: 800px;
+  height: 560px;
+  padding: 50px;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
