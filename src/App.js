@@ -5,17 +5,16 @@ import Body from "./components/Body";
 import { useEffect } from "react";
 
 const App = () => {
-  const [todos, setTodos] = useState([
-    { id: "1", name: "leha", status: "active" },
-    { id: "2", name: "chelik", status: "deleted" },
-    { id: "3", name: "shish", status: "completed" },
-  ]);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("store")) || []
+  );
 
   const [finalTodos, setFinalTodos] = useState([]);
 
   const [status, setStatus] = useState("active");
 
   useEffect(() => {
+    localStorage.setItem("store", JSON.stringify(todos))
     const filtered = todos.filter((todo) => {
       return todo.status === status;
     });
