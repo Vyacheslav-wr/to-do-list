@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const App = () => {
   const [todos, setTodos] = useState([
     { id: "1", name: "leha", status: "active" },
-    { id: "2", name: "gay", status: "deleted" },
+    { id: "2", name: "chelik", status: "deleted" },
     { id: "3", name: "shish", status: "completed" },
   ]);
 
