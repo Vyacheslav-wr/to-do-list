@@ -8,9 +8,9 @@
   const changeStatus = (event) => {
     const options = document.getElementsByClassName("option")
     for (var i = 0; i < options.length; i++) {
-     console.log(options[i].innerHTML);
+     options[i].style.color = "#a7a7a7";
     }
-    event.target.style.color='0965dd'
+    event.target.style.color='#0965dd'
     setStatus(event.target.innerText)
   }
    return (
