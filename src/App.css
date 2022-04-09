@@ -98,6 +98,19 @@ header {
   cursor: pointer;
 }
 
+.input {
+  order: 2;
+  border: none;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 40px;
+  cursor: pointer;
+  color: #3D82EB;
+  outline: none;
+}
+
 .todoitem:hover {
   box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -105,7 +118,7 @@ header {
 }
 
 .todoitem:hover .delete{
-  width: 32px;
+  width: 20px;
   display: block;
 }
 
@@ -131,31 +144,118 @@ header {
 }
 
 .delete {
+  vertical-align: middle;
+  line-height: 0px;
+  height: 20px; 
+  width: 20px;  
+  font-size: 1em;
   border-radius: 50%;
-  width: 0.5rem;
-  height: 1.7rem;
-  display: none;
+  border-color: #df1313;
+  background-color: #ffffff;
+  color: #ff2600;
+  text-align:center;
 }
 
 .addinput {
   padding:10px;
   border:0;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
-.container .addbutton {
-  position: relative;
-  background-color: #f1f1f1;
-  color: black;
+.container {
   font-size: 16px;
-  padding: 10px 20px;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
-  text-align: center;
+  align-items: center;
 }
 
-.container .addbutton:hover {
-  background-color: black;
-  color: white;
+.addbutton {
+  vertical-align: middle;
+  line-height: 0px;
+  height: 20px; 
+  width: 20px;  
+  font-size: 1.5em;
+  border-radius: 50%;
+  border-color: #17a0df;
+  background-color: #ffffff;
+  color: #17a0df;
+  text-align:center;
+}
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 3px;
+  left: 3px;
+  top: 4px;
+  opacity: 0;
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 8px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #4e4e4e;
+  border-color: #4e4e4e;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.three-dots:after {
+  cursor: pointer;
+  color: rgb(63, 63, 63);
+  content: '\2807';
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .option {
+  color: rgb(167, 167, 167);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content .option:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

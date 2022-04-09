@@ -3,7 +3,7 @@ import { useState } from "react";
 import Todolist from "./Todolist";
 
 const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
-  const [inputField, setInputField] = useState("");
+  const [inputField, setInputField] = useState("Create new Item");
   
   const handleSave = () => {
     handleAddTodo(inputField);
@@ -16,15 +16,28 @@ const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
   const isActive = status === "active"
 
   const style = {
-    display: isActive ? "block" : "none"
+    display: isActive ? "flex" : "none"
+  }
+
+  const handleFocus = () => {
+    setInputField("")
+  }
+
+  const handleOutFocus = () => {
+    setInputField("Create new Item")
+  }
+
+  const disableInput = {
+    outline: "blur"
   }
 
   return (
     <div>
       <Todolist handleChangeStatus={handleChangeStatus} todos={todos} />
-      <div className="container" style={style}>
-        <input className="addinput" onChange={handleChange} value={inputField} placeholder="New item"></input>
-        <button className="addbutton" onClick={handleSave} disabled={!isActive} hidden={!isActive}>Add</button>
+
+      <div className="container" style={style} onMouseEnter={handleFocus} onMouseLeave={handleOutFocus}>
+        <button className="addbutton" onClick={handleSave}>+</button>
+        <input className="input" onChange={handleChange} value={inputField} placeholder="New item"></input>
       </div>
     </div>
   );

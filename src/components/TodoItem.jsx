@@ -21,18 +21,30 @@ const TodoItem = ({ todo, handleChangeStatus }) => {
     visibility: isDeleted ? "hidden" : "block"
   }
 
+  const setHidden = {
+    display: isDeleted ? "none" : "flex"
+  }
+
   const handleDelete = () => {
-    todo.status = "deleted"
+    if(todo.status === "deleted") {
+        todo.status = "active"
+    }
+    else {
+      todo.status = "deleted"
+    }
     handleChangeStatus(todo);
   }
 
   return (
     <div class="todoitem">
       <div className="todoitem__left">
-        <input className="todocheckbox" onChange={handleStatus} checked={isCompleted} disabled={isDeleted} hidden={isDeleted} type="checkbox" />
+        <div className="round">
+          <input type="checkbox" id="checkbox" onChange={handleStatus} checked={isCompleted} style={setHidden} />
+          <label for="checkbox" style={setHidden}></label>
+        </div>
         <div className="todoitem__text" style={style}>{todo.name}</div>
       </div>
-      <input className="delete" style={styleButton} onClick={handleDelete} disabled={isDeleted} hidden={isDeleted} type="button" value='X' />
+      <input className="delete" onClick={handleDelete} type="button" value='x' />
     </div>
   );
 };
