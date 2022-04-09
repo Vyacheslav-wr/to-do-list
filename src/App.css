@@ -225,12 +225,16 @@ header {
   opacity: 1;
 }
 
-.three-dots:after {
-  cursor: pointer;
-  color: rgb(63, 63, 63);
-  content: '\2807';
-  font-size: 20px;
-  padding: 0 5px;
+.three-dots {
+  color: rgb(114, 114, 114);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.three-dots:hover {
+  color: rgb(36, 35, 35);
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .dropdown {
@@ -248,7 +252,7 @@ header {
 }
 
 .dropdown-content .option {
-  color: #a7a7a7;
+  color: rgb(167, 167, 167);
   padding: 12px 16px;
   text-decoration: none;
   display: block;

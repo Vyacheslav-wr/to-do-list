@@ -23,7 +23,7 @@
           <span className='header__title'>Today</span>
         </div>
         <div className='dropdown'>
-          <div className='three-dots'></div>
+          <div className='three-dots'>...</div>
           <div className='dropdown-content'>
             <span className='option' value="active" onClick={changeStatus}>active</span>
             <span className='option' value="completed" onClick={changeStatus}>completed</span>
