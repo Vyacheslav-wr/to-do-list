@@ -6,8 +6,9 @@ const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
   const [inputField, setInputField] = useState("Create new Item");
   
   const handleSave = () => {
-    handleAddTodo(inputField);
-    setInputField("");
+    var el = document.getElementById("add_input")
+    handleAddTodo(el.value);
+    el.value=""
   };
   const handleChange = (event) => {
     setInputField(event.target.value);
@@ -20,11 +21,11 @@ const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
   }
 
   const handleFocus = () => {
-    setInputField("")
+    setInputField("New Item")
   }
 
   const handleOutFocus = () => {
-    setInputField("Create new Item")
+    setInputField("Create New Item")
   }
 
   const disableInput = {
@@ -37,7 +38,7 @@ const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
 
       <div className="container" style={style} onMouseEnter={handleFocus} onMouseLeave={handleOutFocus}>
         <button className="addbutton" onClick={handleSave}>+</button>
-        <input className="input" onChange={handleChange} value={inputField} placeholder="New item"></input>
+        <input id="add_input" className="input" placeholder={inputField}/>
       </div>
     </div>
   );

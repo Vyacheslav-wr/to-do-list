@@ -107,7 +107,6 @@ header {
   justify-content: space-between;
   padding-right: 40px;
   cursor: pointer;
-  color: #3D82EB;
   outline: none;
 }
 
@@ -263,4 +262,9 @@ header {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+::placeholder {
+  color: #2e77ff;
+  font-size: 1em;
 }
