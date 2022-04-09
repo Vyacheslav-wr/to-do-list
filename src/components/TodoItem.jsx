@@ -35,8 +35,18 @@ const TodoItem = ({ todo, handleChangeStatus }) => {
     handleChangeStatus(todo);
   }
 
+  const showDelete = (event) => {
+    const delBtn = event.target.querySelector('input')
+    delBtn.style.dislat = "flex"
+  }
+
+  const hideDelete = (event) => {
+    var delBtn = event.target.querySelector('input')
+    delBtn.style.visibility = "none"
+  }
+
   return (
-    <div class="todoitem">
+    <div class="todoitem" onMouseEnter={showDelete} onMouseLeave={hideDelete}>
       <div className="todoitem__left">
         <div className="round">
           <input type="checkbox" id="checkbox" onChange={handleStatus} checked={isCompleted} style={setHidden} />
