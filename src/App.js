@@ -34,6 +34,15 @@ const App = () => {
     }
   };
 
+  const handleDeleteTodo = (mainTodo) => {
+    const filteredTodos = todos.filter((todo) => {
+      return todo.id !== mainTodo.id;
+    });
+    setTodos([
+      ...filteredTodos
+    ]);
+  }
+
   const handleChangeStatus = (mainTodo) => {
     
     const filteredTodos = todos.filter((todo) => {
@@ -50,7 +59,7 @@ const App = () => {
     <div className="wrapper">
       <div className="app">
         <Header setStatus={setStatus} status={status} />
-        <Body handleAddTodo={handleAddTodo} handleChangeStatus={handleChangeStatus} todos={finalTodos} status={status}/>
+        <Body handleAddTodo={handleAddTodo} handleChangeStatus={handleChangeStatus} handleDeleteTodo={handleDeleteTodo} todos={finalTodos} status={status}/>
       </div>
     </div>
   );

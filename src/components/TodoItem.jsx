@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoItem = ({ todo, handleChangeStatus }) => {
+const TodoItem = ({ todo, handleChangeStatus, handleDeleteTodo }) => {
   const handleStatus = (event) => {
     if (event.target.checked) {
       todo.status = "completed";
@@ -17,22 +17,14 @@ const TodoItem = ({ todo, handleChangeStatus }) => {
     textDecorationLine: isDeleted ? "line-through" : "none"
   }
 
-  const styleButton = {
-    visibility: isDeleted ? "hidden" : "block"
-  }
-
-  const setHidden = {
-    display: isDeleted ? "none" : "flex"
-  }
-
   const handleDelete = () => {
-    if(todo.status === "deleted") {
-        todo.status = "active"
+    if (todo.status === "deleted") {
+      handleDeleteTodo(todo)
     }
     else {
       todo.status = "deleted"
+      handleChangeStatus(todo);
     }
-    handleChangeStatus(todo);
   }
 
   const showDelete = (event) => {
@@ -49,8 +41,8 @@ const TodoItem = ({ todo, handleChangeStatus }) => {
     <div class="todoitem" onMouseEnter={showDelete} onMouseLeave={hideDelete}>
       <div className="todoitem__left">
         <div className="round">
-          <input type="checkbox" id="checkbox" onChange={handleStatus} checked={isCompleted} style={setHidden} />
-          <label for="checkbox" style={setHidden}></label>
+          <input type="checkbox" id="checkbox" onChange={handleStatus} checked={isCompleted || isDeleted}  />
+          <label for="checkbox" ></label>
         </div>
         <div className="todoitem__text" style={style}>{todo.name}</div>
       </div>
