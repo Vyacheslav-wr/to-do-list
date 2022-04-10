@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Todolist from "./Todolist";
 
-const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
+const Body = ({ todos, handleAddTodo, handleChangeStatus, handleDeleteTodo, status}) => {
   const [inputField, setInputField] = useState("Create new Item");
   
   const handleSave = () => {
@@ -20,25 +20,21 @@ const Body = ({ todos, handleAddTodo, handleChangeStatus, status}) => {
     display: isActive ? "flex" : "none"
   }
 
-  const handleFocus = () => {
-    setInputField("New Item")
-  }
-
-  const handleOutFocus = () => {
+  const handleOutFocus = (event) => {
     setInputField("Create New Item")
+    event.target.placeholder = "Create New Item"
   }
 
-  const disableInput = {
-    outline: "blur"
+  const disableInput = (event) => {
+    event.target.placeholder = ""
   }
 
   return (
     <div>
-      <Todolist handleChangeStatus={handleChangeStatus} todos={todos} />
-
-      <div className="container" style={style} onMouseEnter={handleFocus} onMouseLeave={handleOutFocus}>
+      <Todolist handleChangeStatus={handleChangeStatus} handleDeleteTodo={handleDeleteTodo} todos={todos} />
+      <div className="container" style={style}>
         <button className="addbutton" onClick={handleSave}>+</button>
-        <input id="add_input" className="input" placeholder={inputField}/>
+        <input id="add_input" className="input" placeholder={inputField} onBlur={handleOutFocus} onFocus={disableInput}/>
       </div>
     </div>
   );
