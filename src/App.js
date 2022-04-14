@@ -14,7 +14,9 @@ const App = () => {
       method: "get",
       url: "https://backend-todo-labashinskiy.herokuapp.com/get-all",
       headers: {
-        "Access-Control-Allow-Origin": "true"
+        "Access-Control-Allow-Origin": "true",
+        "Access-Control-Allow-Headers": "Origin, X-Requested, Content-Type, Accept Authorization",
+        "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE"
       }
     };
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'true';
