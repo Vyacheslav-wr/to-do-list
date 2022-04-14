@@ -17,6 +17,7 @@ const App = () => {
         "Access-Control-Allow-Origin": "*"
       }
     };
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     axios(config)
       .then(function (response) {
         localStorage.setItem("store", JSON.stringify(response.data));
