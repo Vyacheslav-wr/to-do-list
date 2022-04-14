@@ -12,7 +12,7 @@ const App = () => {
     i = 0;
     var config = {
       method: "get",
-      url: "http://localhost:8888/get-all",
+      url: "https://backend-todo-labashinskiy.herokuapp.com/get-all",
     };
     axios(config)
       .then(function (response) {
@@ -46,7 +46,7 @@ const App = () => {
     } else {
       const cur_id = Date.now();
 
-      fetch("http://localhost:8888/save", {
+      fetch("https://backend-todo-labashinskiy.herokuapp.com/save", {
         mode: "no-cors",
         method: "POST",
 
@@ -65,7 +65,7 @@ const App = () => {
   };
 
   const handleDeleteTodo = (mainTodo) => {
-    fetch("http://localhost:8888/delete-by-id", {
+    fetch("https://backend-todo-labashinskiy.herokuapp.com/delete-by-id", {
       mode: "no-cors",
       method: "POST",
 
@@ -85,7 +85,7 @@ const App = () => {
 
   const handleChangeStatus = (mainTodo) => {
     console.log(mainTodo);
-    fetch("http://localhost:8888/update", {
+    fetch("https://backend-todo-labashinskiy.herokuapp.com/update", {
       method: "POST",
 
       body: JSON.stringify({
