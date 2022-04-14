@@ -13,7 +13,9 @@ const App = () => {
     var config = {
       method: "get",
       url: "https://backend-todo-labashinskiy.herokuapp.com/get-all",
-      "Access-Control-Allow-Origin": "*"
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
     };
     axios(config)
       .then(function (response) {
