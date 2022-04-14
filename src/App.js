@@ -14,10 +14,10 @@ const App = () => {
       method: "get",
       url: "https://backend-todo-labashinskiy.herokuapp.com/get-all",
       headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "true"
       }
     };
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'true';
     axios(config)
       .then(function (response) {
         localStorage.setItem("store", JSON.stringify(response.data));
